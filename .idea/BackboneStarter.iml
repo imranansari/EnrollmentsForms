@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="RUBY_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="bundler (v1.1.pre.4, Ruby SDK 1.9.2-p94) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack (v1.3.3, Ruby SDK 1.9.2-p94) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sinatra (v1.2.6, Ruby SDK 1.9.2-p94) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="tilt (v1.3.3, Ruby SDK 1.9.2-p94) [gem]" level="application" />
+  </component>
+</module>
+
