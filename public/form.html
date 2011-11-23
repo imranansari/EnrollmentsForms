@@ -9,8 +9,8 @@
     <script src="js/vendor/jquery-1.7.min.js"></script>
     <script src="js/vendor/underscore.js"></script>
     <script src="js/vendor/backbone.js"></script>
-    <script src="js/enrollment_forms.js"></script>
-   <!-- <script src="js/vendor/backbone.modelbinding.js"></script>-->
+    <script src="js/enrollment_forms_binding.js"></script>
+    <script src="js/vendor/backbone.modelbinding.js"></script>
 
     <script type="text/template" id="viewform-template">
         <span><%= firstName %></span>
@@ -18,8 +18,12 @@
     </script>
 
     <script type="text/template" id="editform-template">
-        <span><input id="first_name" value="<%= firstName %>"></span>
-        <span><%= lastName %></span>
+        <form id="edit-form">
+            <span><input id="firstName" value="<%= firstName %>"></span>
+            <span><input id="lastName" value="<%= lastName %>"></span>
+            <span><input id="middleName" value="<%= middleName %>"></span>
+            <span><input id="email" value="<%= email %>"></span>
+        </form>
     </script>
 
 </head>
@@ -30,6 +34,8 @@
     <div id="editform"></div>
 </div>
 
-<div><button id="addRec">Add</button></div>
+<div>
+    <button id="addRec">Add</button>
+</div>
 </body>
 </html>

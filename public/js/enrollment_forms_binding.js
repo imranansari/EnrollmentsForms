@@ -17,6 +17,7 @@ $(document).ready(function () {
         render:function () {
             var content = this.template(this.model.toJSON());
             $(this.el).html(content);
+            Backbone.ModelBinding.bind(this);
             return this;
         }
     });
@@ -35,6 +36,7 @@ $(document).ready(function () {
         render:function () {
             var content = this.template(this.model.toJSON());
             $(this.el).html(content);
+            Backbone.ModelBinding.bind(this);
             return this;
         }
     });
@@ -61,6 +63,8 @@ $(document).ready(function () {
 
     $('#addRec').click(function () {
         console.log('add');
-        newEnrollment.set({firstName:'Bart'});
+        //newEnrollment.set({firstName:'Bart'});
+        //console.log("myModel : "+ JSON.stringify(newEnrollment));
+        WebViewJavascriptBridge.sendMessage(JSON.stringify(newEnrollment));
     })
 });
