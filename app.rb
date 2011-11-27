@@ -13,3 +13,7 @@ end
 get '/form' do
   File.read(File.join('public', 'form.html'))
 end
+
+get '/anim' do
+  File.read(File.join('public', 'zepto_animations.html'))
+end

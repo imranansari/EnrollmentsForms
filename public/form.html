@@ -4,12 +4,18 @@
 
     <title>Enrollment Form</title>
 
-    <link rel="stylesheet" href="style/enrollment_forms.css">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+
+  <!--  <link rel="stylesheet" href="style/enrollment_forms.css">-->
+
+    <link type="text/css" rel="stylesheet" media="only screen and (max-device-width: 480px)" href="style/iphone.css"/>
 
     <script src="js/vendor/jquery-1.7.min.js"></script>
+    <script src="js/vendor/zepto.min.js"></script>
     <script src="js/vendor/underscore.js"></script>
     <script src="js/vendor/backbone.js"></script>
-    <script src="js/enrollment_forms_binding.js"></script>
+    <script src="js/enrollment_forms_binding.js?1"></script>
     <script src="js/vendor/backbone.modelbinding.js"></script>
 
     <script type="text/template" id="viewform-template">
@@ -19,10 +25,10 @@
 
     <script type="text/template" id="editform-template">
         <form id="edit-form">
-            <span><input id="firstName" value="<%= firstName %>"></span>
-            <span><input id="lastName" value="<%= lastName %>"></span>
-            <span><input id="middleName" value="<%= middleName %>"></span>
-            <span><input id="email" value="<%= email %>"></span>
+            <span><input type="text" id="firstName" value="<%= firstName %>"></span>
+            <span><input type="text" id="lastName" value="<%= lastName %>"></span>
+            <span><input type="text" id="middleName" value="<%= middleName %>"></span>
+            <span><input type="text" id="email" value="<%= email %>"></span>
         </form>
     </script>
 
@@ -30,8 +36,8 @@
 
 <body>
 <div id="container">
-    <div id="viewform"></div>
     <div id="editform"></div>
+    <div id="viewform"></div>
 </div>
 
 <div>

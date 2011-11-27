@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <link type="text/css" rel="stylesheet" media="only screen and (max-device-width: 480px)" href="style/iphone.css"/>
+
+    <script src="js/vendor/jquery-1.7.min.js"></script>
+    <script src="js/vendor/zepto.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#page1').show();
+
+
+            Zepto('#next').tap(function () {
+                $('#page1').hide();
+                //Zepto('#page2').show();
+                //Zepto('#page2').addClass('current');
+
+
+                //Zepto('#page2').show();
+                //$('#page2').show("slide", { direction: "down" }, 1000);
+
+                var $marginLefty = $('#page2');
+                $marginLefty.css('marginLeft', '100%');
+                $marginLefty.show();
+
+                //$marginLefty.animate({"left": "-=50px"}, "fast");
+
+                $marginLefty.animate(
+                        { marginLeft:"0%"}, 990
+                );
+
+
+
+                /*                Zepto('#page2').addClass('current');   */
+                //Zepto('#page2').show();
+
+                //Zepto('#page2').animate({ translate3d: '10px, 20px, 20px'}, 2, 'ease-in-out').show();
+
+                //$('#page2').anim({translate(3em,0)}).show();
+
+                //{"ease":".25,.1,.25,1","linear":"0,0,1,1","ease-out":"0,0,.58,1","ease-in-out":".42,0,.58,1"}
+
+                //$('#page2').anim('rotate(720deg)', 0.5, 10).show();
+
+                //-webkit-transition:all 1.0s ease-in-out;
+            });
+        });
+
+
+    </script>
+
+    <style type="text/css">
+        .page {
+            display: none;
+            width:600px;
+            background-color: gray;
+            height: 200px;
+
+        }
+
+        #container {
+            height: 200px;
+        }
+
+        .current {
+            -webkit-transform: translate(3em, 0);
+
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <div id="page1" class="page">page1</div>
+    <div id="page2" class="page">page2</div>
+    <div id="page3" class="page">page3</div>
+</div>
+
+<div id="nav">
+    <input type="button" value="Next" id="next"/>
+</div>
+
+</body>
+</html>

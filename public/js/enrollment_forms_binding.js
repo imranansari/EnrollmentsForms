@@ -61,10 +61,19 @@ $(document).ready(function () {
     $("#editform").append(enrollmentEditView.render().el);
 
 
-    $('#addRec').click(function () {
-        console.log('add');
+    /*    $('#addRec').click(function () {
+     console.log('add');
+     //newEnrollment.set({firstName:'Bart'});
+     //console.log("myModel : "+ JSON.stringify(newEnrollment));
+     WebViewJavascriptBridge.sendMessage(JSON.stringify(newEnrollment));
+     })*/
+
+    Zepto('#addRec').tap(function () {
+        alert('add');
         //newEnrollment.set({firstName:'Bart'});
-        //console.log("myModel : "+ JSON.stringify(newEnrollment));
-        WebViewJavascriptBridge.sendMessage(JSON.stringify(newEnrollment));
-    })
+    });
+
+    Zepto('#container').swipeLeft(function () {
+           alert('left');
+    });
 });
