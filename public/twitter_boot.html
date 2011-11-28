@@ -1,0 +1,282 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <link type="text/css" rel="stylesheet" media="only screen and (max-device-width: 480px)" href="style/iphone.css"/>
+
+    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+
+    <script src="js/vendor/jquery-1.7.min.js"></script>
+    <script src="js/vendor/zepto.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var pages = ['page1', 'page2', 'page3'];
+            var currentPageIndex = 0;
+            $('#page1').show();
+
+            Zepto('#container').swipeRight(function () {
+                showPrevPage();
+            });
+
+            Zepto('#container').swipeLeft(function () {
+                showNextPage();
+
+            });
+
+            function showNextPage() {
+                if (currentPageIndex < pages.length - 1) {
+                    var currentPage = pages[currentPageIndex];
+                    $('#' + currentPage).hide();
+                    currentPageIndex += 1;
+                    var $page = $('#' + pages[currentPageIndex]);
+                    $page.css('marginLeft', '100%');
+                    $page.animate({ marginLeft:"0%"}, 500).show();
+                }
+            }
+
+
+            $('#clickme').click(function () {
+                $('#book').animate({
+                    width:'toggle',
+                    height:'toggle'
+                }, {
+                    duration:5000,
+                    specialEasing:{
+                        width:'linear',
+                        height:'easeOutBounce'
+                    },
+                    complete:function () {
+                        $(this).after('<div>Animation complete.</div>');
+                    }
+                });
+            });
+
+            function showPrevPage() {
+                if (currentPageIndex > 0) {
+                    var currentPage = pages[currentPageIndex];
+                    $('#' + currentPage).hide();
+                    currentPageIndex -= 1;
+                    var $page = $('#' + pages[currentPageIndex]);
+                    $page.css('marginRight', '100%');
+                    $page.animate({ marginRight:"0%"}, 500).show();
+                }
+            }
+
+        });
+
+
+    </script>
+
+    <style type="text/css">
+        .page {
+            display: none;
+            height: 500px;
+
+        }
+
+        #container {
+            height: 500px;
+        }
+
+        .current {
+            -webkit-transform: translate(3em, 0);
+
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <div id="page1" class="page">
+        <div class="pageContent">
+            <div class="span12">
+                <form action="">
+                    <fieldset>
+                        <legend>Add/Update Primary Beneficiaries</legend>
+
+                        <div class="clearfix">
+
+                            <label for="firstName">First Name</label>
+
+                            <div class="input">
+                                <input class="xlarge" id="firstName" name="firstName" size="30" type="text"/>
+                            </div>
+
+                        </div>
+                        <div class="clearfix">
+                            <label for="middleName">Middle Name</label>
+
+                            <div class="input">
+                                <input class="xlarge" id="middleName" name="xlInput3" size="30" type="text"/>
+                            </div>
+                        </div>
+                        <div class="clearfix">
+                            <label>SSN</label>
+
+                            <div class="input">
+                                <div class="inline-inputs">
+                                    <input class="span1" type="text" value=""/>
+                                    <input class="span1" type="text" value=""/>
+                                    <input class="span1" type="text" value=""/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- /clearfix -->
+                        <div class="clearfix">
+                            <label for="gender">Gender</label>
+
+                            <div class="input">
+                                <select name="gender" id="gender">
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="clearfix">
+                            <label for="relationship">Relationship</label>
+
+                            <div class="input">
+                                <select name="relationship" id="relationship">
+                                    <option>Daughter</option>
+                                    <option>Son</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="clearfix">
+                            <label for="dob">Date of Birth</label>
+
+                            <div class="input">
+                                <input id="dob" class="small" type="text" value=""/>
+                            </div>
+                        </div>
+
+                        <div class="clearfix">
+                            <label>Zip/Postal Code</label>
+
+                            <div class="input">
+                                <div class="inline-inputs">
+                                    <input class="mini" type="text" value=""/>
+                                    <input class="mini" type="text" value=""/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="clearfix">
+                            <label for="city">City</label>
+
+                            <div class="input">
+                                <select name="city" id="city">
+                                    <option>Greensboro</option>
+                                    <option>Durham</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="clearfix">
+                            <label for="state">State</label>
+
+                            <div class="input">
+                                <select name="state" id="state">
+                                    <option>NC</option>
+                                    <option>NY</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="clearfix">
+                            <label for="country">Country</label>
+
+                            <div class="input">
+                                <select name="country" id="country">
+                                    <option>USA</option>
+                                    <option>Canada</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="clearfix">
+                            <label for="mailingAddress">Mailing Address</label>
+
+                            <div class="input">
+                                <input class="span8" id="mailingAddress" name="mailingAddress" type="text"/>
+                                <span><button type="submit" class="btn small">Add Row</button></span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="clearfix">
+                            <label for="percentage">Percentage</label>
+
+                            <div class="input">
+                                <input class="span1" id="percentage" name="percentage" type="text"/>
+                            </div>
+                        </div>
+
+                    </fieldset>
+
+                    <div class="well" style="padding: 14px 19px;">
+                        <button type="submit" class="btn large success">OK</button>
+                        &nbsp;
+                        <button type="reset" class="btn danger large">Cancel</button>
+                        <span style="float: right;">
+                            <button type="submit" class="btn primary large">Add</button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="page2" class="page">
+        <div>Page2</div>
+        <div class="pageContent">
+            <form>
+                <span><input type="text" id="firstName" value="<%= firstName %>"></span>
+                <span><input type="text" id="lastName" value="<%= lastName %>"></span>
+                <span><input type="text" id="middleName" value="<%= middleName %>"></span>
+
+                <div><input type="text" id="email" value="<%= email %>"></div>
+                <div><input type="text" id="email" value="<%= email %>"></div>
+                <div><input type="text" id="email" value="<%= email %>"></div>
+                <div><input type="text" id="email" value="<%= email %>"></div>
+                <div><input type="text" id="email" value="<%= email %>"></div>
+            </form>
+        </div>
+    </div>
+    <div id="page3" class="page">
+        <form>
+            <div class="row">
+                <div class="span1"></div>
+                <div class="span5"><label for="a1">First Name</label>
+
+                    <div class="input">
+                        <input class="xlarge" id="a1" name="xlInput3" size="30" type="text"/>
+                    </div>
+                </div>
+                <div class="span5"><label for="a2">Middle Name</label>
+
+                    <div class="input">
+                        <input class="xlarge" id="a2" name="xlInput3" size="30" type="text"/>
+                    </div>
+                </div>
+                <div class="span5"><label for="a3">Last Name</label>
+
+                    <div class="input">
+                        <input class="xlarge" id="a3" name="xlInput3" size="30" type="text"/>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
