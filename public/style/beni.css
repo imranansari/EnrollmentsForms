@@ -1,0 +1,25 @@
+.primaryTotalSelected div {
+
+    font-size: 10px;
+    white-space:nowrap;
+    font-weight: bold;
+}
+
+.primaryTotalSelected span {
+    color: red;
+    font-size: 25px;
+}
+
+body {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.helpText {
+    color: #808080;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    background-image: url("/images/glyphicons-halflings-white.png") !important;
+
+}
