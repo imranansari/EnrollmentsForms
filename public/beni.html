@@ -1,166 +1,216 @@
 <!doctype html>
 <head>
-    <meta charset="utf-8">
+<meta charset="utf-8">
 
-    <title>Enrollment Form</title>
+<title>Enrollment Form</title>
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 
-    <!--  <link rel="stylesheet" href="style/enrollment_forms.css">-->
+<!--  <link rel="stylesheet" href="style/enrollment_forms.css">-->
 
-    <link type="text/css" rel="stylesheet" href="style/bootstrap.css"/>
+<link type="text/css" rel="stylesheet" href="style/bootstrap.css"/>
 
-    <link type="text/css" rel="stylesheet" href="style/beni.css"/>
+<link type="text/css" rel="stylesheet" href="style/beni.css"/>
 
-    <script src="js/vendor/jquery-1.7.min.js"></script>
-    <script src="js/vendor/zepto.min.js"></script>
-    <script src="js/vendor/underscore.js"></script>
-    <script src="js/vendor/backbone.js"></script>
-    <script src="js/beni.js"></script>
-    <script src="js/JSBridge.js?5"></script>
-    <script src="js/vendor/backbone.modelbinding.js"></script>
+<script src="js/vendor/jquery-1.7.min.js"></script>
+<script src="js/vendor/zepto.min.js"></script>
+<script src="js/vendor/underscore.js"></script>
+<script src="js/vendor/backbone.js"></script>
+<script src="js/beni.js?1"></script>
+<script src="js/JSBridge.js?5"></script>
+<script src="js/vendor/backbone.modelbinding.js"></script>
 
-    <script type="text/template" id="viewform-template">
-        <span><%= firstName %></span>
-        <span><%= lastName %></span>
-    </script>
 
-    <script type="text/template" id="editform-template">
-        <!--        <form id="edit-form">
-            <span><input type="text" id="firstName" value="<%= firstName %>"></span>
-            <span><input type="text" id="lastName" value="<%= lastName %>"></span>
-            <span><input type="text" id="middleName" value="<%= middleName %>"></span>
-            <span><input type="text" id="email" value="<%= email %>"></span>
-        </form>-->
+<script type="text/template" id="editform-template">
 
-        <div>
-            <div class="row">
+    <div>
+        <div class="row">
 
-                <div class="span7"><h1>Primary Beneficiaries</h1>
+            <div class="span7"><h1>Primary Beneficiaries</h1>
 
-                    <div class="helpText">Please add.... Please add.... Please add.... Please add.... Please add....
-                        Please add... Please add... Please add... Please add... Please add... Please add... Please
-                        add...
-                    </div>
-                </div>
-                <div class="span1 well primaryTotalSelected">
-                    <div>Total Selected</div>
-                    <span class="percent">21%</span>
+                <div class="helpText">Please add.... ..... ..... ..... ..... ..... ..... ..... ..... ..... ..... ..... ..... ..... ..... ..... ..... ..... ..... ..... ..... ..... ..... ..... ..... ..... ..... ..... .....
                 </div>
             </div>
-            <div>
-                <button class="btn btn-inverse btn-large" href="#">
-                    <i class="icon-plus icon-white"></i>ADD BENEFICIARY
-                </button>
-
-            </div>
-            <div class="row well">
-                <div class="span5">
-                    <h3>LastName, FIrstName</h3>
-
-                </div>
-                <div class="span2"><a class="btn btn-danger" href="#">Delete</a></div>
-
-                <div class="input-append">
-                    <input class="input-mini" id="appendedInput" size="3" type="text"><span class="add-on">%</span>
-                </div>
-                <div class="row">
-                    <div class="span8 well">
-                        <form class="form-horizontal ">
-
-                            <fieldset>
-                                <div class="control-group">
-                                    <label class="control-label" for="focusedInput">Focused input</label>
-
-                                    <div class="controls">
-                                        <input class="input-xlarge focused" id="focusedInput" type="text"
-                                               value="This is focused…">
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <label class="control-label">Uneditable input</label>
-
-                                    <div class="controls">
-                                        <span class="input-xlarge uneditable-input">Some value here</span>
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <label class="control-label" for="disabledInput">Disabled input</label>
-
-                                    <div class="controls">
-                                        <input class="input-xlarge disabled" id="disabledInput" type="text"
-                                               placeholder="Disabled input here…" disabled="">
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <label class="control-label" for="optionsCheckbox2">Disabled checkbox</label>
-
-                                    <div class="controls">
-                                        <label class="checkbox">
-                                            <input type="checkbox" id="optionsCheckbox2" value="option1" disabled="">
-                                            This is a disabled checkbox
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="control-group warning">
-                                    <label class="control-label" for="inputWarning">Input with warning</label>
-
-                                    <div class="controls">
-                                        <input type="text" id="inputWarning">
-                                        <span class="help-inline">Something may have gone wrong</span>
-                                    </div>
-                                </div>
-                                <div class="control-group error">
-                                    <label class="control-label" for="inputError">Input with error</label>
-
-                                    <div class="controls">
-                                        <input type="text" id="inputError">
-                                        <span class="help-inline">Please correct the error</span>
-                                    </div>
-                                </div>
-                                <div class="control-group success">
-                                    <label class="control-label" for="inputSuccess">Input with success</label>
-
-                                    <div class="controls">
-                                        <input type="text" id="inputSuccess">
-                                        <span class="help-inline">Woohoo!</span>
-                                    </div>
-                                </div>
-                                <div class="control-group success">
-                                    <label class="control-label" for="selectError">Select with success</label>
-
-                                    <div class="controls">
-                                        <select id="selectError">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                        </select>
-                                        <span class="help-inline">Woohoo!</span>
-                                    </div>
-                                </div>
-
-                            </fieldset>
-                        </form>
-                    </div>
-
-                </div>
+            <div class="span1 well primaryTotalSelected">
+                <div>Total Selected</div>
+                <span class="percent"><%= beniPercent %>%</span>
             </div>
         </div>
-    </script>
+        <div>
+            <button class="btn btn-inverse btn-large" href="#">
+                <i class="icon-plus icon-white"></i> ADD BENEFICIARY
+            </button>
+
+        </div>
+        <div class="row well">
+            <div class="span5">
+                <h3><%= lastName %>, <%= firstName %></h3>
+
+            </div>
+            <div class="span2"><a class="btn btn-danger" href="#">Delete</a></div>
+
+            <div class="input-append">
+                <input class="input-mini beniPercent" id="beniPercent" size="3" type="text"><span
+                    class="add-on">%</span>
+            </div>
+            <div class="row">
+                <div class="span8 well">
+                    <form class="form-horizontal ">
+
+                        <fieldset>
+                            <div class="control-group">
+                                <label class="control-label" for="firstName">First Name</label>
+
+                                <div class="controls">
+                                    <input class="input-xlarge focused" id="firstName" type="text"
+                                           value="" placeholder="Enter First Name">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="middleName">Middle Name</label>
+
+                                <div class="controls">
+                                    <input class="input-xlarge focused" id="middleName" type="text"
+                                           value="" placeholder="Enter Middle Name">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="middleName">Last Name</label>
+
+                                <div class="controls">
+                                    <input class="input-xlarge focused" id="lastName" type="text"
+                                           value="" placeholder="Enter Last Name">
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label" for="ssn">Social Security Number</label>
+
+                                <div class="controls">
+                                    <div class="input">
+                                        <div class="inline-inputs">
+                                            <input class="span1" type="number" value=""/>
+                                            <input class="span1" type="number" value=""/>
+                                            <input class="span1" type="number" value=""/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="middleName">Relationship</label>
+
+                                <div class="controls">
+                                    <select name="relationship" id="relationship">
+                                        <option>Daughter</option>
+                                        <option>Son</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label" for="middleName">Date of Birth</label>
+
+                                <div class="controls">
+                                    <input id="dob" class="small" type="date" value=""/>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label" for="middleName">Address Line 1</label>
+
+                                <div class="controls">
+                                    <input class="input-xlarge focused" id="address1" type="text"
+                                           value="" placeholder="Enter Last Name">
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label" for="middleName">Address Line 2</label>
+
+                                <div class="controls">
+                                    <input class="input-xlarge focused" id="address2" type="text"
+                                           value="" placeholder="Enter Last Name">
+                                </div>
+                            </div>
+
+
+                            <div class="control-group">
+                                <label class="control-label" for="middleName">City</label>
+
+                                <div class="controls">
+                                    <select name="relationship" id="city">
+                                        <option>Greensboro</option>
+                                        <option>Chicago</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label" for="middleName">State</label>
+
+                                <div class="controls">
+                                    <select name="relationship" id="state">
+                                        <option>NC</option>
+                                        <option>IL</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label" for="middleName">Country</label>
+
+                                <div class="controls">
+                                    <select name="relationship" id="country">
+                                        <option>USA</option>
+                                        <option>Canada</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label" for="middleName">Zip</label>
+
+                                <div class="controls">
+                                    <input class="input-xlarge focused" id="zip" type="text"
+                                           value="" placeholder="Enter Zip COde">
+                                </div>
+                            </div>
+
+                            <form class="form-horizontal well">
+
+                                <fieldset>
+                                    <div class="control-group">
+                                        <label class="control-label" for="middleName">Percentage</label>
+
+                                        <div class="controls">
+                                            <div class="input-append">
+                                                <input class="input-mini beniPercent" id="beniPercent" size="3" type="text"><span
+                                                    class="add-on">%</span>
+                                            </div>
+                                            <input id="test" type="range"/>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+
+                        </fieldset>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+</script>
 
 </head>
 
 <body>
 <div id="container">
     <div id="editform"></div>
-    <!--<div id="viewform"></div>-->
+
 </div>
 
-<!--<div>
-    <button id="addRec">Add</button>
-</div>-->
 </body>
 </html>

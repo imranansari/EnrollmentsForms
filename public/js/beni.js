@@ -23,9 +23,6 @@ $(document).ready(function () {
     });
 
     EnrollmentEditView = Backbone.View.extend({
-        //template: _.template($("#form1-template").html()),
-        /*        tag: 'li',
-         className: 'album',*/
 
         initialize:function () {
             _.bindAll(this, 'render');
@@ -45,16 +42,14 @@ $(document).ready(function () {
         "firstName":"Homer",
         "middleName":"J.",
         "lastName":"Simpson",
-        "email":"homer@fox.com"
+        "email":"homer@fox.com",
+        "beniPercent":"21"
     };
 
     var newEnrollment = new Enrollment();
     newEnrollment.set(rec1);
-    console.log(newEnrollment);
-    console.log(newEnrollment.toJSON());
-
-    var enrollmentView = new EnrollmentView({model:newEnrollment});
-    $("#viewform").append(enrollmentView.render().el);
+    //console.log(newEnrollment);
+    //console.log(newEnrollment.toJSON());
 
 
     var enrollmentEditView = new EnrollmentEditView({model:newEnrollment});
@@ -72,12 +67,10 @@ $(document).ready(function () {
         //alert(JSON.stringify(newEnrollment));
 
         var obj = new JSBridgeObj();
-                //obj.addObject("task", "display_message");
-
+         //obj.addObject("task", "display_message");
         //obj.addObject("message", "hello");
-
         //obj.addObject("message", newEnrollment);
-        var myArr = ['1', JSON.stringify(newEnrollment)];
+        //var myArr = ['1', JSON.stringify(newEnrollment)];
         obj.addObject("message", JSON.stringify(newEnrollment));
 
         obj.sendBridgeObject(obj);
@@ -92,12 +85,5 @@ $(document).ready(function () {
     Zepto('#container').swipeLeft(function () {
         alert('left');
     });
-
-    document.addEventListener('WebViewJavascriptBridgeReady', onBridgeReady, false);
-    function onBridgeReady() {
-        WebViewJavascriptBridge.setMessageHandler(function (message) {
-            alert(message);
-        });
-    }
 
 });
